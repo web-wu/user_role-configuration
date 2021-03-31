@@ -11,4 +11,6 @@ public interface UserService {
     List<Role> activeRole();
 
     void addUSer(User user, Long[] roleList);
+
+    User login(User user) throws Exception;
 }

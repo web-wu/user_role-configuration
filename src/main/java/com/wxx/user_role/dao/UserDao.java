@@ -13,4 +13,6 @@ public interface UserDao {
     Long addUser(User user);
 
     void addUser_Role(Long userId, Long[] roleIds);
+
+    User login(User user) throws Exception;
 }

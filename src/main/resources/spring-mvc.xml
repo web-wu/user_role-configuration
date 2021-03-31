@@ -22,4 +22,16 @@
         <property name="prefix" value="/pages/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
+
+    <!--    配置登录路由守卫，权限拦截-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/user/login"/>
+            <bean class="com.wxx.user_role.interceptor.AuthorityInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!--   异常处理 -->
+    <bean id="exceptionHander" class="com.wxx.user_role.exception.ExceptionHander"></bean>
 </beans>

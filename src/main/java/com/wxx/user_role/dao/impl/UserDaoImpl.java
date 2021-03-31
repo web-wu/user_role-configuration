@@ -63,4 +63,10 @@ public class UserDaoImpl implements UserDao {
             jdbcTemplate.update("insert into sys_user_role values (?, ?)", userId, roleId);
         }
     }
+
+    @Override
+    public User login(User user) throws Exception {
+        User _user = jdbcTemplate.queryForObject("select * from sys_user where username = ? and password = ?", new BeanPropertyRowMapper<User>(User.class), user.getUsername(), user.getPassword());
+        return _user;
+    }
 }

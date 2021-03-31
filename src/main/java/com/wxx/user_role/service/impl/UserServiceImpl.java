@@ -42,4 +42,10 @@ public class UserServiceImpl implements UserService {
         Long userId = userDao.addUser(user);
         userDao.addUser_Role(userId, roleList);
     }
+
+    @Override
+    public User login(User user) throws Exception {
+        User _user = userDao.login(user);
+        return _user;
+    }
 }
